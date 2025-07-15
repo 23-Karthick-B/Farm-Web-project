@@ -1,0 +1,111 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #222;
+    padding: 10px 20px;
+    color: white;
+}
+
+header nav {
+    display: flex;
+    /* Ensures buttons are in a row */
+    align-items: center;
+    gap: 15px;
+    /* Space between buttons */
+}
+
+i {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+#search-section {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+#search-bar {
+    width: 350px;
+    /* Increase width */
+    height: 45px;
+    /* Make it taller */
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 2px solid #4e6f91;
+    /* Blue border */
+    border-radius: 25px;
+    /* Rounded corners */
+    outline: none;
+    box-shadow: 0 4px 8px rgba(57, 112, 170, 0.2);
+    /* Subtle shadow */
+    transition: all 0.3s ease-in-out;
+}
+
+#search-bar:focus {
+    border-color: #0056b3;
+    /* Darker blue when focused */
+    box-shadow: 0 4px 12px rgba(0, 86, 179, 0.3);
+}
+
+#search-bar::-webkit-search-cancel-button {
+    cursor: pointer;
+    /* Change to a hand pointer */
+}
+
+#search-btn i {
+    background-color: #007BFF;
+    /* Blue button */
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    /* Circular button */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: white;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+#search-btn i:hover {
+    background-color: #354c65;
+    /* Darker blue on hover */
+    box-shadow: 0 4px 10px rgba(0, 86, 179, 0.3);
+}
+
+/* Order section styling */
+#order-section {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    /* Hidden by default */
+    width: 250px;
+    height: 100%;
+    background: white;
+    box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    transition: right 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+/* Close button */
+#close-order {
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    color: red;
+    float: right;
+}
+
+/* Show when active */
+#order-section.active {
+    right: 0;
+}

@@ -1,0 +1,90 @@
+.product-container {
+    width: 100%;
+
+    margin: 40px auto;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-container h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.swiper-container {
+    width: 100%;
+}
+
+/* Swiper Slide */
+.swiper-slide {
+    width: 200px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fff;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.swiper-slide:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.swiper-slide img {
+    height: 250px;
+    border-radius: 8px;
+}
+
+.product-name {
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
+
+
+
+/* See More Card */
+.see-more {
+    background: #a5afbb;
+    color: white;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.see-more button {
+    border: 2px solid #333;
+    /* Ensure there's a visible border */
+    font-size: 24px;
+    /* Adjust icon/text size */
+    border-radius: 50%;
+    /* Ensures a circular shape */
+    width: 50px;
+    /* Set equal width and height */
+    height: 50px;
+    display: flex;
+    /* Centers the content */
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background: white;
+    /* Optional: Background color */
+}
+
+/* Navigation Buttons */
+.swiper-button-next,
+.swiper-button-prev {
+    color: #007bff;
+
+}

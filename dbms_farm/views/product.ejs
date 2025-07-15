@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>product</title>
+    <link rel="stylesheet" href="css/product.css">
+    <script src="product.js" defer></script>
+</head>
+
+<body>
+    <div class="product-container">
+        <div class="product-image">
+            <img src="images/no-image.jpg" alt="FB-RASHIKA F1 Hybrid Tomato Seeds">
+            <span class="discount">-35%</span>
+        </div>
+        <div class="product-details">
+            <h1>FB- RASHIKA F1Hybrid Tomato Seeds – 10 GM</h1>
+            <p class="price">₹788.00 – ₹7,280.00</p>
+            <label for="volume">VOLUME:</label>
+            <select id="volume">
+                <option>Choose an option</option>
+                <option>10 GM</option>
+                <option>50 GM</option>
+                <option>100 GM</option>
+            </select>
+            <div class="quantity-selector">
+                <button onclick="decreaseQuantity()">-</button>
+                <input type="text" id="quantity" value="1" readonly>
+                <button onclick="increaseQuantity()">+</button>
+            </div>
+            <button class="add-to-cart">ADD TO CART</button>
+        </div>
+    </div>
+
+</body>
+
+</html>

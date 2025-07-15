@@ -1,0 +1,136 @@
+/* Swiper Container */
+.product-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 15px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Product Title */
+.product-container h2 {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Swiper */
+.swiper {
+    width: 100%;
+    padding: 20px 0;
+}
+
+/* Swiper Wrapper */
+.swiper-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+/* Swiper Slide */
+.swiper-slide {
+    width: 200px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    text-align: center;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.swiper-slide:hover {
+    transform: scale(1.05);
+}
+
+/* Product Image */
+.swiper-slide img {
+    width: 100%;
+    height: 150px;
+    border-radius: 8px;
+}
+
+/* Product Name */
+.product-name {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 8px;
+}
+
+/* Product Quantity */
+.product-quantity {
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* Product Price */
+.product-price {
+    font-size: 14px;
+    color: #27ae60;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+/* "See More" Slide */
+.swiper-slide.see-more {
+    background: #e74c3c;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: background 0.3s;
+}
+
+.swiper-slide.see-more:hover {
+    background: #c0392b;
+}
+
+.swiper-slide.see-more button {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 18px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+/* Navigation Buttons */
+.swiper-button-next,
+.swiper-button-prev {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: background 0.3s;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .swiper-slide {
+        width: 160px;
+    }
+
+    .swiper-slide img {
+        height: 120px;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        width: 30px;
+        height: 30px;
+    }
+}

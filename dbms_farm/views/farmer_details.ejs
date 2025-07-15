@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= farmerName %>
+    </title>
+    <link rel="stylesheet" href="css/farmer_details.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Farmer Details</h1>
+        <div class="farmer-card">
+            <h2>
+                <%= farmer.name %>
+            </h2>
+            <p><strong>Age:</strong>
+                <%= farmer.age %>
+            </p>
+            <p><strong>Location:</strong>
+                <%= farmer.location %>
+            </p>
+            <p><strong>Contact:</strong>
+                <%= farmer.contact %>
+            </p>
+            <p><strong>Crops Grown:</strong>
+                <%= farmer.crops.join(", ") %></p>
+        </div>
+
+        <h2>Products</h2>
+        <div class=" products-container">
+                    <% if (farmer.products.length> 0) { %>
+                        <% farmer.products.forEach(product=> { %>
+                            <div class="product-card">
+                                <img src="images/no-image.jpg" alt="<%= product.name %>">
+                                <h3>
+                                    <%= product.name %>
+                                        <%= farmerName %>
+                                            <%= farmerId %>
+                                </h3>
+                                <p><strong>Price:</strong> ₹<%= product.price %>
+                                </p>
+                            </div>
+                            <div class="product-card">
+                                <img src="images/no-image.jpg" alt="<%= product.name %>">
+                                <h3>
+                                    <%= product.name %>
+                                </h3>
+                                <p><strong>Price:</strong> ₹<%= product.price %>
+                                </p>
+                            </div>
+                            <div class="product-card">
+                                <img src="images/no-image.jpg" alt="<%= product.name %>">
+                                <h3>
+                                    <%= product.name %>
+                                </h3>
+                                <p><strong>Price:</strong> ₹<%= product.price %>
+                                </p>
+                            </div>
+                            <div class="product-card">
+                                <img src="images/no-image.jpg" alt="<%= product.name %>">
+                                <h3>
+                                    <%= product.name %>
+                                </h3>
+                                <p><strong>Price:</strong> ₹<%= product.price %>
+                                </p>
+                            </div>
+                            <% }); %>
+                                <% } else { %>
+                                    <p>No products available.</p>
+                                    <% } %>
+        </div>
+
+        <a href="/farmers">Back to Farmers List</a>
+    </div>
+
+</body>
+
+</html>

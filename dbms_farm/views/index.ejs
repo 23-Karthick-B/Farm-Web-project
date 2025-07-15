@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, 
+                         initial-scale=1.0">
+    <title>Farm management</title>
+    <link rel="stylesheet" href="/css/index.css">
+    <script src="/js/login.js" defer></script>
+</head>
+
+<body>
+    <section class="banner">
+        <h2>FARMER MANAGEMENT SYSTEM</h2>
+    </section>
+    <div class="container">
+
+        <div class="slider"></div>
+        <div class="btn">
+            <button class="login">Login</button>
+            <button class="signup">Signup</button>
+        </div>
+
+
+        <div class="form-section">
+            <form class="login-form user-form">
+                <div class="checkbox-container">
+                    <h1 class="heading">SELECT</h1>
+                    <div class="checkboxes">
+                        <input type="radio" name="choice" id="farmer-opt-login" value="farmer">
+                        <label for="farmer-opt-login">Farmer</label>
+                        <input type="radio" name="choice" id="consumer-opt-login" value="consumer">
+                        <label for="consumer-opt-login">Consumer</label>
+                    </div>
+                </div>
+                <input type="hidden" name="formType" value="login">
+                <div class="login-box">
+                    <input type="text" name="username" class="user-id ele" placeholder="Username" required>
+                    <input type="password" name="password" class="password ele" placeholder="Password" required>
+                    <button type="submit" class="clkbtn" id="login-btn">Login</button>
+                    <button type="button" class="clkbtn" id="forgot-btn">
+                        Forgot Passsword?</button>
+                </div>
+            </form>
+            <form class="signup-form user-form">
+                <div class="checkbox-container">
+                    <h1 class="heading">SELECT</h1>
+                    <div class="checkboxes">
+                        <input type="radio" name="choice" id="farmer-opt-signup" value="farmer">
+                        <label for="farmer-opt-signup">Farmer</label>
+                        <input type="radio" name="choice" id="consumer-opt-signup" value="consumer">
+                        <label for="consumer-opt-signup">Consumer</label>
+                    </div>
+                </div>
+                <input type="hidden" name="formType" value="signup">
+                <div class="signup-box">
+                    <input type="text" name="username" class="username ele" placeholder="Enter your Username" required>
+                    <input type="text" name="name" class="name ele" placeholder="Enter your name" required>
+                    <input type="tel" name="contact" class="contact ele" placeholder="Contact number" required>
+                    <input type="password" name="password" class="password ele" placeholder="Password" required>
+                    <input type="password" name="confirm-pass" class="password ele" placeholder="Confirm password"
+                        required>
+                    <input type="text" name="street" class="street ele" placeholder="street" required>
+                    <select name="district" id="district" class="district ele" required>
+                        <option value="" disabled selected>Select a district</option>
+                        <% districts.forEach(district=> { %>
+                            <option value="<%= district %>">
+                                <%= district %>
+                            </option>
+                            <% }); %>
+                    </select>
+                    <input type="number" name="pincode" class="pincode ele" placeholder="Pincode" required>
+                    <button type="submit" class="clkbtn">Signup</button>
+
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,268 @@
+/* History Bar */
+#history-bar {
+    position: fixed;
+    right: -300px;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    background: #f4f4f4;
+    box-shadow: -2px 0px 10px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s ease-in-out;
+    padding: 15px;
+    overflow-y: auto;
+}
+
+#history-bar.active {
+    right: 0;
+}
+
+#history-bar h3 {
+    margin-top: 0;
+}
+
+#history-bar ul {
+    list-style: none;
+    padding: 0;
+}
+
+#history-bar li {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+#close-history {
+    background: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 18px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.modal-content {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    width: 400px;
+    /* Increased width */
+    /* Align content properly */
+    position: relative;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Close button styling */
+.close-modal {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    font-size: 22px;
+    cursor: pointer;
+    color: #d9534f;
+    transition: color 0.3s ease-in-out;
+}
+
+.close-modal:hover {
+    color: #c9302c;
+}
+
+/* Form styling */
+#product-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Label and input alignment */
+.form-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.form-group label {
+    width: 120px;
+    text-align: right;
+    font-weight: bold;
+}
+
+.form-group input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+/* Button styling */
+button {
+    padding: 10px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease-in-out;
+}
+
+button:hover {
+    background: #218838;
+}
+
+/* Buttons */
+button {
+    padding: 8px 12px;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+#history-btn,
+#add-product-btn,
+#update-product-btn {
+    background: #3498db;
+    color: white;
+}
+
+#search-btn {
+    background: block;
+    border: none;
+}
+
+#search-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 10px 0;
+}
+
+#search-section input {
+    padding: 8px;
+    width: 70%;
+    max-width: 400px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+header nav {
+    justify-self: flex-end;
+}
+
+/* Order section styling */
+#order-section {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 250px;
+    height: 100%;
+    background: white;
+    box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    transition: right 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+/* Close button */
+#close-order {
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    color: red;
+    float: right;
+}
+
+/* Show when active */
+#order-section.active {
+    right: 0;
+}
+
+/* Sidebar for Seeds/Fertilizers */
+#supplier-panel {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100%;
+    background: white;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    transition: right 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+#supplier-panel {
+    position: fixed;
+    right: -300px;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background: white;
+    display: none;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s ease-in-out;
+}
+
+#supplier-panel.show {
+    right: 0;
+    display: block;
+}
+
+#close-supplier {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: red;
+}
+
+.sale-content {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: #333;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: fit-content;
+    max-width: 400px;
+}
+
+.sale-content strong {
+    font-weight: bold;
+}
+
+.sale-content span {
+    color: #007bff;
+}

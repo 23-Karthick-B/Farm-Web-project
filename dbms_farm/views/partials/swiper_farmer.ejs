@@ -1,0 +1,53 @@
+<div class="product-container">
+    <h2>
+        <%= productType %>
+    </h2>
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            <% let maxSlides=8; %>
+                <% products.slice(0, maxSlides).forEach(product=> { %>
+                    <div class="swiper-slide" onclick="navigateTo('<%= product.seeMoreLink %>')">
+                        <img src="<%= product.image || '/images/no-image.jpg' %>" alt="<%= product.productName %>">
+                        <div class="product-name">
+                            <%= product.productName %>
+                        </div>
+                        <div class="product-quantity">Available: <%= product.quantity %> kg
+                        </div>
+                        <div class="product-price">
+                            Price: ₹<%= product.price ? product.price : 'N/A' %>/kg
+                        </div>
+                    </div>
+                    <% }); %>
+
+                        <% if (products.length> maxSlides) { %>
+                            <!-- See More Card -->
+                            <div class="swiper-slide see-more" onclick="navigateTo('<%= seeMoreLink %>')">
+                                See More <button><i class="fa fa-greater-than"></i></button>
+                            </div>
+                            <% } %>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+</div>
+
+<script>
+    var swiper = new Swiper('.swiper', {
+        slidesPerView: 'auto',
+        spaceBetween: 15,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        loop: false,
+    });
+
+
+    function navigateTo(url) {
+        if (url) {
+            window.location.href = url;
+        }
+    }
+</script>

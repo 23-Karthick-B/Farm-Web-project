@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= username %>
+    </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="/css/swiper_farmer.css">
+    <link rel="stylesheet" href="/css/farmer.css">
+</head>
+
+<body>
+    <header>
+        <button id="hamburg"><i class="fa fa-bars"></i></button>
+        <nav id="nav-link">
+            <button id="history-btn"><i class="fa fa-history"></i> View Sales</button>
+            <button id="add-product-btn"><i class="fa fa-plus"></i> Add Product</button>
+            <button id="update-product-btn"><i class="fa fa-edit"></i> Update Product</button>
+            <button id="supp-btn"><i class="fa fa-shopping-bag"></i></button>
+            <button id="cart-btn"><i class="fa fa-shopping-cart"></i></button>
+            <button id="user-icon"><i class="fas fa-user"></i></button>
+        </nav>
+    </header>
+    <div id="supplier-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Select Category</h2>
+            <button id="seeds-btn">Seeds</button>
+            <button id="fertilizers-btn">Fertilizers</button>
+        </div>
+    </div>
+
+    <!-- Sidebar for Seeds and Fertilizers -->
+    <aside id="supplier-panel">
+        <button id="close-supplier">&times;</button>
+        <h3 id="supplier-title">Products</h3>
+        <ul id="supplier-list">
+            <li>No items available</li>
+        </ul>
+    </aside>
+
+    <aside id="history-bar">
+        <button id="close-history">&times;</button>
+        <h3>Sales</h3>
+        <ul id="history-list">
+            <% if (salesHistory && salesHistory.length> 0) { %>
+                <% salesHistory.forEach(sale=> { %>
+                    <li>
+                        <div class="sale-content">
+                            <strong>
+                                <%= sale.productName %>
+                            </strong><span>
+                                Price: ₹<%= sale.price %>/kg
+                            </span>
+                            <span>Qty: <%= sale.quantity %></span>
+                            <span>Date: <%= sale.date %></span>
+                        </div>
+                    </li>
+                    <% }) %>
+                        <% } else { %>
+                            <li>No recent actions</li>
+                            <% } %>
+        </ul>
+    </aside>
+
+    <section id="search-section">
+        <input type="search" id="search-bar">
+        <button type="button" id="search-btn"><i class="fa fa-search"></i></button>
+    </section>
+
+    <% productTypes.forEach(type=> { %>
+        <%- include('partials/swiper_farmer.ejs', { productType : type.productType, products : type.products,
+            seeMoreLink : type.seeMoreLink }) %>
+            <% }) %>
+
+                <!-- Add Product Modal -->
+                <div id="add-product-modal" class="modal">
+                    <div class="modal-content">
+                        <span class="close-modal">&times;</span>
+                        <h2>Add Product</h2>
+                        <form id="add-product-form">
+                            <label>Product Name:</label>
+                            <input name="productName" type="text" id="add-product-name" required>
+
+                            <label>Product Type:</label>
+                            <input name="productType" type="text" id="add-product-type" required>
+
+                            <label>Quantity:</label>
+                            <input name="quantity" type="number" id="add-product-quantity" required>
+
+                            <label>Price:</label>
+                            <input name="price" type="number" id="add-product-price" required>
+
+                            <button type="submit">Save</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Update Product Modal -->
+                <div id="update-product-modal" class="modal">
+                    <div class="modal-content">
+                        <span class="close-modal">&times;</span>
+                        <h2>Update Product</h2>
+                        <form id="update-product-form">
+                            <label>Product Name:</label>
+                            <input name="productName" type="text" id="update-product-name" required>
+
+                            <label>Product Type:</label>
+                            <input name="productType" type="text" id="update-product-type" required>
+
+                            <label>Quantity:</label>
+                            <input name="quantity" type="number" id="update-product-quantity" required>
+
+                            <label>Price:</label>
+                            <input name="price" type="number" id="update-product-price" required>
+
+                            <button type="submit">Update</button>
+                        </form>
+                    </div>
+                </div>
+
+                <script>
+                    const username = "<%= username %>";
+                </script>
+                <script src="/js/farmer.js"></script>
+</body>
+
+</html>

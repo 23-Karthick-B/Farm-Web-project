@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= productName %>
+    </title>
+    <link rel="stylesheet" href="/css/product_details.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <button id="hamburg"><i class="fa fa-bars"></i></button>
+        <nav id="nav-link">
+            <button id="cart-btn"><i class="fa fa-shopping-cart"></i></button>
+            <button id="user-icon"><i class="fas fa-user"></i></button>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>Products - <%= productName %>
+        </h2>
+        <div id="product-list" class="product-grid">
+            <% products.forEach(product=> { %>
+                <div class="product-card">
+                    <img src="<%= product.image ? product.image : '/images/no-image.jpg' %>" alt="Product Image">
+                    <h3>
+                        <%= product.productName %>
+                    </h3>
+                    <p>Price: ₹<%= product.price %>
+                    </p>
+                    <p>Farmer ID: <%= product.farmerId %>
+                    </p>
+                    <button class="buy-btn"
+                        onclick="openModal('<%= product.productName %>', '<%= product.price %>')">Buy Now</button>
+
+                    <!-- Modal for this Product -->
+                    <div class="modal-overlay"></div>
+                    <div class="modal">
+                        <h3>Order - <%= product.productName %>
+                        </h3>
+                        <p>Enter quantity:</p>
+                        <input type="number" id="quantity-<%= product.productName %>" min="1" value="1">
+                        <p>Total Price: ₹<span id="total-price-<%= product.productName %>">
+                                <%= product.price %>
+                            </span></p>
+                        <button class="confirm-btn"
+                            onclick="confirmPurchase('<%= product.productName %>', '<%= product.price %>')">Confirm</button>
+                        <button class="close-btn" onclick="closeModal()">Cancel</button>
+                    </div>
+                </div>
+                <% }); %>
+        </div>
+    </div>
+
+    <script>
+        function openModal(productName, price) {
+            const modal = event.target.closest('.product-card').querySelector('.modal');
+            const overlay = event.target.closest('.product-card').querySelector('.modal-overlay');
+            modal.style.display = "block";
+            overlay.style.display = "block";
+
+            // Update total price when quantity changes
+            const quantityInput = modal.querySelector('input');
+            const totalPriceElement = modal.querySelector('span');
+
+            quantityInput.addEventListener('input', function () {
+                const quantity = parseInt(this.value) || 1;
+                totalPriceElement.textContent = (quantity * price).toFixed(2);
+            });
+        }
+
+        function closeModal() {
+            const modal = event.target.closest('.modal');
+            const overlay = event.target.closest('.product-card').querySelector('.modal-overlay');
+            modal.style.display = "none";
+            overlay.style.display = "none";
+        }
+
+        function confirmPurchase(productName, price) {
+            const modal = event.target.closest('.modal');
+            const quantityInput = modal.querySelector('input');
+            const quantity = parseInt(quantityInput.value) || 1;
+            const totalPrice = quantity * price;
+
+            alert(`You have ordered ${quantity} x ${productName} for ₹${totalPrice.toFixed(2)}`);
+
+            // Close the modal after confirming
+            closeModal();
+        }
+        function navigateTo(url) {
+            window.location.href = url;
+        }
+    </script>
+
+
+</body>
+
+
+</html>

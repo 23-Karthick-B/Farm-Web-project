@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link rel="stylesheet" href="/css/supplier_product.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <button id="hamburg"><i class="fa fa-bars"></i></button>
+        <nav id="nav-link">
+            <button id="cart-btn"><i class="fa fa-shopping-cart"></i></button>
+            <button id="user-icon"><i class="fas fa-user"></i></button>
+        </nav>
+    </header>
+
+    <center>
+        <h1>
+            <%= type %>
+        </h1>
+    </center>
+
+    <div class="table-container">
+        <table class="records-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Supplier ID</th>
+                    <th>Product Name</th>
+                    <th>Availability</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (products && products.length> 0) { %>
+                    <% products.forEach(product=> { %>
+                        <tr>
+                            <td>
+                                <%= product.id %>
+                            </td>
+                            <td>
+                                <%= product.supplierId %>
+                            </td>
+                            <td>
+                                <%= product.name %>
+                            </td>
+                            <td>
+                                <%= product.availability %>
+                            </td>
+                            <td>₹<%= product.price %>
+                            </td>
+                        </tr>
+                        <% }) %>
+                            <% } else { %>
+                                <tr>
+                                    <td colspan="5">No products available</td>
+                                </tr>
+                                <% } %>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+
+</html>
